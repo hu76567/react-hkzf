@@ -1,0 +1,11 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #eee;
+}
+.citylist{
+    // 预留出顶部navbar的位置
+    padding-top: 45px;
+}

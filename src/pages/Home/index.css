@@ -1,0 +1,13 @@
+.home .iconfont{
+    font-size: 20px;
+}
+
+/* 将tabbar固定在最底部 */
+.home .am-tab-bar-bar{
+    position: fixed;
+    bottom: 0;
+    /* z-index: 1 */
+}
+.home .am-tab-bar{
+    height: 0;
+}
