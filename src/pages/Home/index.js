@@ -63,6 +63,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="home">
+                {/* 二级路由*/}
                 <Route path='/home/index' component={Index}></Route>
                 <Route path='/home/find'  component={Find}></Route>
                 <Route path='/home/news'  component={News}></Route>

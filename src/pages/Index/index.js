@@ -69,7 +69,7 @@ export default class Index extends Component {
       news: [],
       imgHeight: 176,
       isplay: false,
-      cityName:''
+      cityName: ''
    }
 
    async getSwipers() {
@@ -120,25 +120,20 @@ export default class Index extends Component {
       this.getSwipers() //获取轮播图
       this.getGroup()  //获取租房小组
       this.getNews()  //获取最新资讯
-
-      //ip定位
-      // 改造成回调函数
-      // function myFun(result) {
-      //    var cityName = result.name;
-      //    // alert("当前定位城市:" + cityName);
-      //    this.setState({
-      //       cityName:cityName
-      //    })
-      // }
-
-      var myCity = new window.BMapGL.LocalCity();
-      myCity.get(res=> {
-         var cityName = res.name;
-         // alert("当前定位城市:" + cityName);
-         this.setState({
-            cityName:cityName
-         })
+      var that=this
+      // 百度 浏览器定位 
+      var geolocation = new window.BMapGL.Geolocation();
+      geolocation.getCurrentPosition(res => {
+         if (res !== {}) {
+            that.setState({
+               cityName: res.address.district
+            })
+         }
+         else {
+            alert('定位失败')
+         }
       });
+
    }
 
    //渲染轮播图
@@ -232,10 +227,10 @@ export default class Index extends Component {
                {/* 左侧白色区域 */}
                <Flex className="search">
                   {/* 位置 */}
-                  <div className="location" onClick={()=>{
+                  <div className="location" onClick={() => {
                      this.props.history.push('/citylist')
                   }} >
-                     <span className="name">{this.state.cityName}</span>
+                     <span className="name">{this.state.cityName !== '' ? this.state.cityName : '定位中'}</span>
                      <i className="iconfont icon-arrow" />
                   </div>
 

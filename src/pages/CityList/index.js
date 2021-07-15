@@ -11,22 +11,29 @@ export default class CityList extends Component {
         { label: "长沙", value: "AREA|98b03413-6f84-c263", pinyin: "changsha", short: "cs" },
         { label: "宝鸡", value: "AREA|27e414ce-a7e1-fd99", pinyin: "baoji", short: "bj" }]
     }
+    
     async getCityList() {
-        // let res = await axios.get("http://wohaoshuai.net/area/city?level=1")
-        // this.setState({
-        //     citylist: res.data.body
-        // })
+        // let res = await axios.get("http://wohaoshuai.net/area/city?level=1")  //线上数据
+        let { citylist, cityindex } = this.formatCity(this.state.citylist)  //模拟数据
+        console.log(citylist,cityindex)
+    }
+
+    // 封装 formatCity
+    formatCity(citylists) {
         let citylist = {}
-        // res.data.data.body.forEach(item => {
-        this.state.citylist.forEach(item => {
+        citylists.forEach(item => {
             // 例 ：citylist 中有 a 就push进数组,没有就重新赋值为一个新数组
             let key = item.short.substr(0, 1)
-            if (citylist.key) {
+            if (citylist[key]) {
                 citylist[key].push(item)
             } else {
                 citylist[key] = [item]
             }
         })
+        let cityindex = Object.keys(citylist).sort()
+        return {
+            citylist, cityindex
+        }
     }
     componentDidMount() {
         this.getCityList()
