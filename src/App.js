@@ -10,7 +10,7 @@ export default class App extends React.Component {
   render() {
     return <BrowserRouter>
       <div className="App">
-        {/* Home一级路由  二级路由在Home中配置 */}
+        {/* App.js配置一级路由  home中配置二级路由 */}
         {/* <Route exact path="/home" render={(props) => {return <Redirect to="/home/index" />}}></Route> */}
         <Route exact path="/" render={(props) => {return <Redirect to="/home/index" />}}></Route>
         <Route path="/home" component={Home}></Route>
