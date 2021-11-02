@@ -4,7 +4,7 @@
 
 import React, { Component } from "react";
 import { NavBar, Icon} from "antd-mobile";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import  PropTypes  from "prop-types";
 import './navheader.scss'
 
@@ -25,7 +25,7 @@ import './navheader.scss'
 
 
 NavHeader.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.string
 }
 
 NavHeader.defaultProps={

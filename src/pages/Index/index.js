@@ -20,6 +20,8 @@ import news3 from "../../assets/images/news3.jpg";
 
 import { getCurrentCity } from "../../utils/index";
 
+import { API } from "../../utils/api";
+
 // 导航菜单的数据
 const navItems = [
   {
@@ -85,7 +87,7 @@ export default class Index extends Component {
   };
 
   async getSwipers() {
-    // let res = await axios.get("http://api-haoke-dev.itheima.net/home/swiper")
+    // let res = await api.get("http://api-haoke-dev.itheima.net/home/swiper")
     // console.log('轮播图数据',res)
     this.setState(
       {

@@ -4,7 +4,6 @@ import './index.css'
 import { Route } from 'react-router-dom'
 
 import Index from '../Index'
-import Find from '../Find'
 import News from '../News'
 import Mine from '../Mine'
 import Houselist from '../Houselist'
@@ -18,7 +17,7 @@ const tabItems = [{
 {
     title: '找房',
     icon: 'icon-findHouse',
-    path: '/home/find'
+    path: '/home/houselist'
 },
 {
     title: '资讯',
@@ -65,10 +64,10 @@ export default class Home extends Component {
             <div className="home">
                 {/* 二级路由*/}
                 <Route path='/home/index' component={Index}></Route>
-                <Route path='/home/find'  component={Find}></Route>
+                <Route path='/home/houselist'  component={Houselist}></Route>
                 <Route path='/home/news'  component={News}></Route>
                 <Route path='/home/mine'  component={Mine}></Route>
-                <Route path='/home/houselist'  component={Houselist}></Route>
+                
 
                 <TabBar
                     unselectedTintColor="#939393"  //未选中的文字颜色
