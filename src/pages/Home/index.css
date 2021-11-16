@@ -3,11 +3,10 @@
 }
 
 /* 将tabbar固定在最底部 */
-.home .am-tab-bar-bar{
-    position: fixed;
-    bottom: 0;
-    /* z-index: 1 */
-}
 .home .am-tab-bar{
-    height: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
 }

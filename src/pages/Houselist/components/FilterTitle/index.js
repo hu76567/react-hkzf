@@ -21,8 +21,8 @@ export default function FilterTitle(props) {
     <Flex align="center" className={styles.root}>
       {/* 循环titleList 生成四个标题 */}
       {titleList.map((item) => {
-        // 通过属性  判断是否应该高亮 每循环一次判断一次
-        let isSelected = titleSelected[item.type]; // area mode price more
+        // 通过属性  判断是否应该高亮 每循环一次判断一次是否为true
+        let isSelected = titleSelected[item.type]; // area mode price more 
 
         return (
           <Flex.Item

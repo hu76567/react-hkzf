@@ -161,6 +161,11 @@ export default class CityList extends Component {
 
   listRef = React.createRef();
 
+    // 初始化 请求城市列表
+    componentDidMount() {
+      this.getCityList();
+    }
+
   // 处理 城市列表和右侧首字母
   async getCityList() {
     // let res = await axios.get("http://wohaoshuai.net/area/city?level=1")  //线上数据
@@ -202,7 +207,7 @@ export default class CityList extends Component {
     };
   }
 
-  // 渲染城市列表数据
+  // 循环渲染城市列表数据
   rowRenderer = ({
     key, // 唯一key
     index, // 索引号
@@ -293,10 +298,7 @@ export default class CityList extends Component {
     }
   };
 
-  // 初始化 请求城市列表
-  componentDidMount() {
-    this.getCityList();
-  }
+
 
   // 渲染
   render() {
@@ -324,3 +326,4 @@ export default class CityList extends Component {
     );
   }
 }
+

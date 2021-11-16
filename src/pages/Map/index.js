@@ -196,10 +196,12 @@ export default class Map extends Component {
     // this.setState({
     // count:res.data.body.count,
     // list:res.data.body.list
+    // isshow:true //true 点击小区 就 显示房子列表 
     // })
     Toast.hide();
   }
 
+  //渲染房子列表
   renderHouse() {
     return this.state.list.map((item) => {
       return (

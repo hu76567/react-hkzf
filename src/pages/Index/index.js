@@ -20,7 +20,7 @@ import news3 from "../../assets/images/news3.jpg";
 
 import { getCurrentCity } from "../../utils/index";
 
-import { API } from "../../utils/api";
+// import { API } from "../../utils/api";
 
 // 导航菜单的数据
 const navItems = [

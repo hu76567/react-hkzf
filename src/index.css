@@ -1,5 +1,6 @@
-html,body{
-  font-family:'Microsoft YaHei';
+html,
+body {
+  font-family: "Microsoft YaHei";
   color: #333;
   background-color: #fff;
 }
@@ -19,7 +20,7 @@ body {
   padding: 0px;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
@@ -29,7 +30,9 @@ body{
   /* touch-action: pan-y; */
 }
 
-p,h3,h4 {
+p,
+h3,
+h4 {
   margin: 0;
   padding: 0;
 }

@@ -5,8 +5,8 @@ import { Route } from 'react-router-dom'
 
 import Index from '../Index'
 import News from '../News'
-import Mine from '../Mine'
 import Houselist from '../Houselist'
+import Profile from '../Profile';
 
 // 写死的数据
 const tabItems = [{
@@ -27,7 +27,7 @@ const tabItems = [{
 {
     title: '我的',
     icon: 'icon-my',
-    path: '/home/mine'
+    path: '/home/profile'
 }]
 
 export default class Home extends Component {
@@ -66,7 +66,7 @@ export default class Home extends Component {
                 <Route path='/home/index' component={Index}></Route>
                 <Route path='/home/houselist'  component={Houselist}></Route>
                 <Route path='/home/news'  component={News}></Route>
-                <Route path='/home/mine'  component={Mine}></Route>
+                <Route path='/home/profile'  component={Profile}></Route>
                 
 
                 <TabBar
