@@ -164,7 +164,7 @@ export default class HouseList extends Component {
   render() {
     return (
       <div className="houselist">
-        {/* Spring 内部 return this.props.children(this.prop.from、this.prop.to、this.prop.congfig) */}
+        {/* Spring 内部接收样式并作用于包裹的组件上 return this.props.children(this.prop.from、this.prop.to、this.prop.congfig) */}
         <Spring
           from={{ opacity: 0, background: "red" }} //开始样式
           to={{ opacity: 1, background: "green" }} //结束样式

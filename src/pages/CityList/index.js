@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import {Toast } from "antd-mobile";
+import { Toast } from "antd-mobile";
 import "./index.scss";
 // import axios from 'axios'
 import { getCurrentCity } from "../../utils";
-import { List } from "react-virtualized"; //可视区域渲染
-import { AutoSizer } from "react-virtualized"; //可视区域渲染
+import List from "react-virtualized/dist/commonjs/List"; //可视区域渲染
+import AutoSizer from "react-virtualized/dist/commonjs/List"; //可视区域渲染
 
 import NavHeader from "../../components/NavHeader";
 // react ref 使用
@@ -161,10 +161,10 @@ export default class CityList extends Component {
 
   listRef = React.createRef();
 
-    // 初始化 请求城市列表
-    componentDidMount() {
-      this.getCityList();
-    }
+  // 初始化 请求城市列表
+  componentDidMount() {
+    this.getCityList();
+  }
 
   // 处理 城市列表和右侧首字母
   async getCityList() {
@@ -298,8 +298,6 @@ export default class CityList extends Component {
     }
   };
 
-
-
   // 渲染
   render() {
     return (
@@ -326,4 +324,3 @@ export default class CityList extends Component {
     );
   }
 }
-
