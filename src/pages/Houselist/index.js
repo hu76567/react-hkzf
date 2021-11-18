@@ -70,7 +70,6 @@ export default class HouseList extends Component {
       // obj.houseCode = i;
       tempList.push(obj);
     }
-    console.log(tempList);
 
     this.setState({
       // count: res.data.body.count, //房子总数

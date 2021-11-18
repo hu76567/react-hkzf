@@ -7,7 +7,7 @@ import NavHeader from "../../components/NavHeader";
 
 import styles from "./index.module.css";
 
-import { API } from "../../utils/api";
+// import { API } from "../../utils/api";
 // 导入withFormik
 import { withFormik, Form, Field, ErrorMessage } from "formik";
 // 导入yup --主要配合react  * as Yup 导入所有 并取一个 名字Yup
@@ -19,8 +19,6 @@ import * as Yup from "yup";
 
 class Login extends Component {
   render() {
-    console.log("login的props", this.props);
-
     return (
       <div className={styles.root}>
         {/* 顶部导航 */}
@@ -108,22 +106,23 @@ export default withFormik({
     // console.log('用户名',values.username)
     // console.log('密码',values.password)
     // 发送 请求 去登录
-    let res = await API.post("/user/login", {
-      username: values.username,
-      password: values.password,
-    });
-    console.log("登录结果", res);
-    if (res.data.status === 200) {
+    // let res = await API.post("/user/login", {
+    //   username: values.username,
+    //   password: values.password,
+    // });
+    // console.log("登录结果", res);
+    // if (res.data.status === 200) {
       //登录成功 存上token
       // localStorage.setItem("名字","值")
-      localStorage.setItem("my-token", res.data.body.token);
+      // localStorage.setItem("my-token", res.data.body.token);
+       localStorage.setItem("my-token", 'loginsuccess');
       Toast.success("登录成功啦~", 1);
       // 跳转回上一页
       props.history.go(-1);
-    } else {
-      //失败 提示
-      Toast.fail("登录失败啦~", 2);
-    }
+    // } else {
+    //   //失败 提示
+    //   Toast.fail("登录失败啦~", 2);
+    // }
   },
   //3 validationSchema:Yup 表单验证
   // Yup.matches(正则表达式,错误提示)  可以自己写正则表达式

@@ -20,38 +20,29 @@ const menus = [
   { id: 5, name: "个人资料", iconfont: "icon-myinfo" },
   { id: 6, name: "联系我们", iconfont: "icon-cust" },
 ];
-// 赋值了就用 alert 没有赋值直接用 Modal.alert
-// const alert = Modal.alert;
 
 // 默认头像
 const DEFAULT_AVATAR = baseURL + "/img/profile/avatar.png";
 
 export default class Profile extends Component {
-  // islogin 不应该写死 应该看 有没有登录
-  // 有token就是登录了 没有token 就是未登录
   //  token 存在 localStorage  后面会经常操作 localStorage 封装一下
   state = {
-    islogin: isAuth(), // false 未登录 true代表登录
+    islogin: isAuth(), // 判断当前是否是登录状态  false 未登录 true代表登录
     userInfo: {
-      // 用户信息
       avatar: "",
       nickname: "",
     },
   };
-  
+
   componentDidMount() {
-    // 判断如果登录了  就发送请求获取 用户头像昵称
     this.getUserinfo();
   }
-  //判断如果登录了  就发送请求获取 用户头像昵称
+
+  // 如果登录了 发送请求获取 用户头像昵称
   getUserinfo = async () => {
     if (!this.state.islogin) {
-      //没有登录
-      return; //不执行后面代码
+      return; // 未登录 不执行后面代码
     }
-    //登录了    就发送请求获取 用户头像昵称
-    // 需要一个 header  token 请求头
-    // API.get("地址",{参数 header请求头})
     let res = await API.get("/user", {
       //  headers:{//  名字:值
       //    authorization : getToken() // 设置token 头
@@ -59,7 +50,7 @@ export default class Profile extends Component {
     });
     console.log("用户信息", res);
     // 判断成功
-    if (res.data.status == 200) {
+    if (res.data.status === 200) {
       // 赋值 昵称 与 头像
       this.setState({
         userInfo: {
@@ -71,9 +62,9 @@ export default class Profile extends Component {
       console.log("获取用户信息失败");
     }
   };
-  // 退出
+
+  // 退出登录
   logout = () => {
-    // 1 弹框  提示是否退出
     Modal.alert("提示", "你确定退出吗???", [
       {
         text: "取消",
@@ -84,18 +75,13 @@ export default class Profile extends Component {
       {
         text: "确定退出", // 按钮文字
         onPress: async () => {
-          // 点击事件
-          console.log("确定退出");
-          // 2 点击退出  发送请求 退出 并跳转到登录页面
-          //  API.post("​地址",数据,{请求头})
           let res = await API.post("/user/logout", null, {
             headers: {
               authorization: getToken(),
             },
           });
 
-          console.log("退出", res);
-          if (res.data.status == 200) {
+          if (res.data.status === 200) {
             //退出成功
             removeToken(); //删除token
             // 重置还原 游客 默认头像  去登陆按钮
@@ -144,11 +130,11 @@ export default class Profile extends Component {
               {/* 判断 如果登录 显示 退出+编辑个人资料
                       未登录 显示 去登录按钮
                */}
-              {/* 登录后展示： */}
               {this.state.islogin ? (
                 //登录了 两个div 整体 用一个div包裹  外层大div 是会在页面显示的
-                //                    <> 可以包裹整体 但是不 显示 类似 tempate block
+                // <> 可以包裹整体 但是不 显示 类似 vue的 tempate   小程序的 block
                 // <> 只是 包裹起来 当成一个整体的作用
+                // 登录时 显示的
                 <>
                   <div className={styles.auth}>
                     <span onClick={this.logout}>退出</span>

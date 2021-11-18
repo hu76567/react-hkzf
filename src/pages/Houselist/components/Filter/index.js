@@ -5,8 +5,8 @@ import FilterPicker from "../FilterPicker";
 import FilterMore from "../FilterMore";
 
 import styles from "./index.module.css";
-import { API } from "../../../../utils/api"; // 导入API
-import { getCurrentCity } from "../../../../utils/index";
+// import { API } from "../../../../utils/api"; // 导入API
+// import { getCurrentCity } from "../../../../utils/index";
 
 // Filter 由三个 子组件组成  FilterTitle  FilterPicker  FilterMore
 
